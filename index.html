@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head> <!-- Раздел предназначен для заголовка страницы и технической информации -->
+<meta charset="UTF-8">
+<title>Graphic editor</title>
+<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> <!-- Подключение шрифта Roboto -->
+<link href="https://google-webfonts-helper.herokuapp.com/fonts/cagliostro?subsets=latin" rel="stylesheet"> <!-- Подключение шрифта cagliostro -->
+<link href="https://fonts.googleapis.com/css?family=Playfair+Display:700" rel="stylesheet">
+<link rel="stylesheet" href="style.css"> <!--Подключение таблиц стилей -->
+</head>
+<body> <!--Хранение содержания веб-страницы, отображаемого в окне браузера -->
+<div class="wrapper">
+<!--Содержимое страницы -->
+<div class="content">
+<div>
+<!--Заголовок сайта и соответствующий ему логотип -->
+<h1><img class ="icon" src="логотип.png" alt="" height="20px">graphic editor</h1>
+</div>
+
+<div class="group3">
+  <div class="editor-buttons"> <!--Блок редактора-кнопок -->
+  <input type="file" id="upload-file" placeholder="Upload a Picture"
+  onchange="reader.readAsDataURL(this.files[0])" />
+  <label for="upload-file" title="Открыть изображение"><img class ="icon" src="папка.png" alt="" height="15px"></label> <!--Подпись к элементу пользовательского интер-фейса "Открыть изображение"-->
+  <button id="reset-btn" title="Сброс"><img class ="icon" src="сброс.png" alt="" height="15px"></button> <!--Вставка кнопки "Сброс" -->
+  <button id="download-btn" title="Сохранить изображение"><img class ="icon" src="сохранить.png" alt="" height="15px"></button> <!--Вставка кнопки "Сохранить изоб-ражение" -->
+  </div>
+</div>
+
+<div class="group1">
+
+<div class="group2">
+<div class="editor-buttons"> <!--Блок редактора-кнопок -->
+  <label for="">Масштабирование</label> <!-- Название ползунка -->
+  <!-- Создание ползунка "Масштабирование"-->
+  <input type="range" min="1" max="5" step="0.01" id="slider" oninput="zoomPOS()" on-change="zoomPOS()" value="1">
+  <br>
+  <label for="brightness">Яркость</label>
+  <!-- Создание ползунка "Яркость"-->
+  <input id="brightness" name="brightness" type="range" min="-100" max="100" value="0">
+  <label for="contrast">Контрастность</label>
+  <!-- Создание ползунка "Контрастность"-->
+  <input id="contrast" name="contrast" type="range" min="-20" max="20" value="0">
+  <label for="sepia">Сепия</label>
+  <!-- Создание ползунка "Сепия"-->
+  <input id="sepia" name="sepia" type="range" min="0" max="100" value="0">
+  <label for="hue">Hue</label>
+  <!-- Создание ползунка "Hue"-->
+  <input id="hue" name="hue" type="range" min="0" max="100" value="0">
+  </div>
+  </div>
+
+<div class="preview-wrapper">
+<div id="pos-container">
+<div id="pos">
+<!--Создает область, в которой при помощи JavaScript можно выводить изображения, рисовать объекты -->
+<canvas id="canvas"></canvas>
+</div>
+</div>
+</div>
+
+<div class="group4">
+<div class="editor-buttons"> <!--Блок редактора-кнопок -->
+<div class="filtr">
+<p>Фильтры</p>
+<button id="vintage-btn">Обесцвечивание</button> <!--Создание кнопки "Обесцвечивание"-->
+<button id="noise-btn">Шум</button> <!--Создание кнопки "Шум"-->
+<button id="sharpen-btn">Резкость</button> <!--Создание кнопки "Резкость"-->
+<button id="blur-btn">Размытие</button> <!--Создание кнопки "Размытие"-->
+<button id="majestic-btn">Majestic</button> <!--Создание кнопки "Majestic"-->
+<button id="nostalgia-btn">Nostalgia</button> <!--Создание кнопки "Nostalgia"-->
+<button id="hdr-btn">HDR Effect</button> <!--Создание кнопки "HDR Effect"-->
+<button id="oldpaper-bnt">Old Paper</button> <!--Создание кнопки "Old Paper"-->
+<button id="pleasant-btn">Pleasant</button> <!--Создание кнопки "Pleasant"-->
+<button id="lomo-btn">Lomo</button> <!--Создание кнопки "Lomo"-->
+<button id="crossprocess-btn">Cross Process</button> <!--Создание кнопки "Cross Process"-->
+<button id="pseudo-btn">Псевдоцвет</button> <!--Создание кнопки "Псевдоцвет"-->
+
+</div>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+<!--Подключение внешних сценариев к HTML документу -->
+<script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js'></script>
+<script src="index.js"></script>
+<script src="grafi-pseudocolor.js"></script>
+</body>
+</html>
