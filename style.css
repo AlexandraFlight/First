@@ -1,0 +1,307 @@
+/*Правило сброса*/
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+outline: none;
+}
+/*Общие параметры текста*/
+body {
+text-align: center;
+margin: 0px auto;
+font-family: "Lato";
+background: #DCDCDC;
+}
+/*Задание высоты при верстке*/
+html,
+body {
+height: 100%;
+}
+/*Размещение логотипа*/
+.icon{
+padding: 0px 5px;
+}
+.wrapper {
+display: flex;
+flex-direction: column;
+height: 100%;
+}
+.content {
+flex: 1 0 auto;
+}
+.filter-name {
+background: #b15885;
+border: none;
+color: white;
+font-family: 'Roboto', sans-serif;
+padding: 3px 15px;
+border-radius: 5px;
+font-size: 1em;
+}
+.filter-group {
+display: inline-block;
+margin: 5px 15px;
+}
+/*Заголовок*/
+h1 {
+text-align: left;
+font-size: 1.5em;
+color: #2E2E2E;
+font-family: 'cagliostro', serif;
+background-color:#8B8B8B;
+padding: 0px 0px;
+}
+/*Текст*/
+p {
+  font-family: 'Roboto', serif;
+}
+/*Надписи*/
+label{
+font-family: 'Roboto', sans-serif;
+}
+/*Область, для рисования графики */
+canvas {
+background: #f5f5f5;
+width: 70%;
+max-width: 100%;
+}
+
+/* Выравнивание групп объектов в один ряд */
+.group1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 100%;
+}
+/* Выравнивание элементов группы кнопок */
+.group2 {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100%;
+  background: #BCBCBC;
+  padding: 10px;
+}
+/* Выравнивание кнопок Открыть, Сброс, Сохранить, чтобы они оставались в одной линии при уменьшении окна браузера */
+.group3 {
+  display: flex;
+  flex-direction: row;
+  background: #A2A2A2;
+  width:100%;
+  padding-right: 10px;
+}
+.group3 .editor-buttons {
+  margin: 0;
+}
+.group4 {
+width: 25%;
+height: 100%;
+background: #BCBCBC;
+}
+/* Редактор кнопок */
+.filtr {
+  display: flex;
+  flex-direction: column;
+  background: #BCBCBC;
+  padding: 10px;
+}
+
+.filter-buttons button,
+.editor-buttons button {
+margin: 7px;
+background: #5F9EA0;
+border: none;
+color: white;
+font-family: 'Roboto', sans-serif;
+padding: 8px 15px;
+border-radius: 3px;
+font-size: 1em;
+cursor: pointer;
+}
+.filter-buttons button.disabled {
+background: #aaa;
+}
+.filter-buttons button {
+padding: 2px 10px;
+margin: 0;
+cursor: pointer;
+background: #000000;
+}
+/* Кнопка "Сброс" */
+.editor-buttons #reset-btn {
+background: #A2A2A2;
+margin: 0;
+padding: 6px 4px;
+box-shadow: none;
+}
+/* Кнопка "Сохранить изображение" */
+.editor-buttons #download-btn {
+background: #A2A2A2;
+margin: 0;
+padding: 6px 4px;
+box-shadow: none;
+}
+
+[type="file"] {
+display: none;
+}
+/* Изменение цвета при наведении на кнопку */
+.filtr button:hover {
+  background: #4D8284;
+  transition: 0.3s all;
+}
+/* Изменение цвета при нажатии на кнопку */
+.filtr button:focus {
+  background: #416D6E;
+  transition: 0.3s all;
+}
+/* Изменение цвета при наведении на кнопку */
+[type="file"] + label:hover {
+  background: #858686;
+  transition: 0.3s all;
+}
+/* Изменение цвета при нажатии на кнопку */
+[type="file"] + label:focus {
+  background: #7E7E7E;
+  transition: 0.3s all;
+}
+.editor-buttons #download-btn:hover {
+  background: #858686;
+  transition: 0.3s all;
+}
+/* Изменение цвета при нажатии на кнопку */
+.editor-buttons #download-btn:focus {
+  background: #7E7E7E;
+  transition: 0.3s all;
+}
+.editor-buttons #reset-btn:hover {
+  background: #858686;
+  transition: 0.3s all;
+}
+/* Изменение цвета при нажатии на кнопку */
+.editor-buttons #reset-btn:focus {
+  background: #7E7E7E;
+  transition: 0.3s all;
+}
+/* Кнопка "Открыть изображение" */
+[type="file"] + label {
+margin: 0;
+background: #A2A2A2;
+border: none;
+color: white;
+cursor: pointer;
+font-family: 'Roboto', sans-serif;
+padding: 6px 4px;
+border-radius: 4px;
+display: inline-block;
+}
+
+/*Поле для изображения*/
+#pos-container {
+min-height: 300px;
+border: 0px solid #111;
+overflow:scroll;
+margin: 0 auto;
+}
+#pos {
+width: 100%;
+text-align: center;
+}
+#canvas {
+max-width: 100%;
+vertical-align: top;
+}
+.preview-wrapper {
+  width: 50%;
+}
+/*Форматирование ползунков*/
+input[type=range] {
+  height: 26px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 100%;
+  background: transparent;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #A9A9A9;
+  border-radius: 10px;
+  border: 1px solid #8A8A8A;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #696969;
+  border: 1px solid #8A8A8A;
+  height: 18px;
+  width: 26px;
+  border-radius: 6px;
+  background: #C0C0C0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -7.5px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #A9A9A9;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  box-shadow: 0px 0px 0px #000000;
+  background: #A9A9A9;
+  border-radius: 10px;
+  border: 1px solid #8A8A8A;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #696969;
+  border: 1px solid #8A8A8A;
+  height: 18px;
+  width: 26px;
+  border-radius: 6px;
+  background: #DADADA;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #A9A9A9;
+  border: 1px solid #8A8A8A;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-fill-upper {
+  background: #A9A9A9;
+  border: 1px solid #8A8A8A;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px #000000;
+}
+input[type=range]::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 1px #696969;
+  border: 1px solid #8A8A8A;
+  height: 18px;
+  width: 26px;
+  border-radius: 6px;
+  background: #DADADA;
+  cursor: pointer;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #A9A9A9;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #A9A9A9;
+}
